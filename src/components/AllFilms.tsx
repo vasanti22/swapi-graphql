@@ -1,22 +1,22 @@
 import React, { FC } from 'react';
 import { FilmsType } from '../types';
 import { Link } from 'react-router-dom';
-
+import { CardContainer, H1, H4 } from '../styles/global';
 interface AllFilmsProps {
-    film: FilmsType;
+	film: FilmsType;
 }
 
 const AllFilms:FC<AllFilmsProps> = ({ film }) => {
-  return (
-    <div>
-        <Link to={`/films/${film.id}`} >
-            <h1>{film?.title}</h1>
-            <p>Release Date: {film?.releaseDate}</p>
-            <p>Director: {film.director}</p>
-            <p>Producer: {film.producers[0]}</p>
-       </Link>
-    </div>
-  )
-}
-
+	return (
+		<CardContainer>
+			<Link to={`/films/${film.id}`} >
+				<H1>{film?.title}</H1>
+				<div><H4>Release Date: </H4> {film?.releaseDate}</div>	
+				<div><H4>Director: </H4>{film.director}</div>
+				{ /*<div><H4>Producer: </H4> {film.producers.join(", ")}</div> */}
+			</Link>
+		</CardContainer>
+		)
+	}
+	
 export default AllFilms;

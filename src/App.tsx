@@ -2,14 +2,16 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './pages/Home';
 import Header from './components/Header';
-import FilmDetails from './pages/FilmDetails';
+import FilmDetails from './components/FilmDetails';
 import AllCharacters from './pages/AllCharacters';
-import CharacterDetail from './pages/CharacterDetail';
+import CharacterDetail from './components/CharacterDetail';
+import { GlobalStyles } from './styles/global'
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
+      <GlobalStyles />
         <Header />
         <Routes>
             <Route path="/" element={ <Home />} />

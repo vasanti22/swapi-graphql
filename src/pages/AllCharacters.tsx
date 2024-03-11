@@ -3,6 +3,7 @@ import { FC, useState } from 'react'
 import { GET_ALL_CHARACTERS } from '../graphql/queries';
 import { useParams, Link } from 'react-router-dom';
 import { People_edges } from '../types';
+import { Section } from '../styles/global';
 //import { FilmsType } from '../types';
 
 const AllCharacters: FC = () => {
@@ -20,7 +21,7 @@ const AllCharacters: FC = () => {
 	//console.log(people);
 	
 	return (
-		<div>
+		<Section>
 		ALL CHARACTERS
 		
 		<ul>{
@@ -62,10 +63,10 @@ const AllCharacters: FC = () => {
 					}}> Load More</button>
 					)
 				}
-				</div>
+			</div>
 				
-				</div>
-				)
-			}
+		</Section>
+	)
+}
 			
-			export default AllCharacters;
+export default AllCharacters;

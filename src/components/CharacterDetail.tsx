@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { GET_CHARACTER } from '../graphql/queries';
 import { FilmsType } from '../types';
+import { Section } from '../styles/global';
 
 const CharacterDetail: FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -17,7 +18,7 @@ const CharacterDetail: FC = () => {
   const character = person?.filmConnection?.films;
 
   return (
-    <div>
+    <Section>
       <h2>Name: {person.name}</h2>
       <p>Height: {person.height}</p>
       <p>DOB: {person.birthYear}</p>
@@ -31,7 +32,7 @@ const CharacterDetail: FC = () => {
           
         ))}
       </ul>
-    </div>
+    </Section>
   );
 }
 
