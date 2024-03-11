@@ -48,7 +48,7 @@ nav a {
     margin: 0 10px;
     
     &:hover{
-        color: #ffe81f;
+        color: #ffc107;
     }
     
 }
@@ -57,12 +57,13 @@ nav a {
 export const Container = styled(Section)`
 display: flex;
 flex-wrap: wrap;
-gap: 1rem;
+justify-content: center;
+gap: 2rem;
 `
 
 export const CardContainer = styled.div`
-flex-basis: 32%;
-background-color: #ffe81f;
+flex-basis: 30%;
+background-color: #ffc107;
 outline: 4px solid #000;
 transition: outline 1s ease 0s;
 
@@ -73,23 +74,24 @@ a {
 }
 &:hover{
     box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.3);
-    outline: 10px solid #ffff00;
+    outline: 10px solid #ffc107;
 }  
 ` 
 export const Heading = styled.span<{ $detailsPage?: boolean; }>`
 
 font-weight: 600;
 display: block;
+margin: 0.5rem 0;
 color: ${props => props.$detailsPage ? "white" : "#000"};
 
 span {
-    color: ${props => props.$detailsPage ? "#ffe81f" : "#000"};
+    color: ${props => props.$detailsPage ? "#ffc107" : "#000"};
 }
 `
 
 export const H1 = styled(Heading)`
 font-size: 1.5rem;
-color: ${props => props.$detailsPage ? "#ffe81f" : "#000"};
+color: ${props => props.$detailsPage ? "#ffc107" : "#000"};
 `
 export const H2 = styled(Heading)`
 font-size: 1.3rem;
@@ -127,7 +129,7 @@ a {
 }
 
 & a:hover {
-    color: #ffe81f;
+    color: #ffc107;
 }
 
 `
