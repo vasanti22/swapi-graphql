@@ -3,13 +3,14 @@ import { useParams, Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { GET_CHARACTER } from '../graphql/queries';
 import { FilmsType } from '../types';
-import { Section } from '../styles/global';
+import { DetailsContainer, H3, H1,Lists } from '../styles/global';
+import Spinner from '../styles/Spinner';
 
 const CharacterDetail: FC = () => {
   const { id } = useParams<{ id: string }>();
   const { loading, error, data } = useQuery(GET_CHARACTER, { variables: { id } });
 
-  if (loading) return <p>Loading...</p>;
+  if(loading) return <Spinner/>
   if (error) return <p>Error: {error.message}</p>;
 
   //console.log(data);
@@ -18,21 +19,21 @@ const CharacterDetail: FC = () => {
   const character = person?.filmConnection?.films;
 
   return (
-    <Section>
-      <h2>Name: {person.name}</h2>
-      <p>Height: {person.height}</p>
-      <p>DOB: {person.birthYear}</p>
-      <p>Gender: {person.gender}</p>
-      <h3>Films</h3>
-      <ul>
+    <DetailsContainer>
+      <H1 $detailsPage>{person.name}</H1>
+      <H3 $detailsPage>Height: <span>{person.height}</span></H3>
+      <H3 $detailsPage>DOB: <span>{person.birthYear}</span></H3>
+      <H3 $detailsPage>Gender: <span>{person.gender}</span></H3>
+      <H1 $detailsPage>Films</H1>
+      <Lists>
         {character.map((film:FilmsType) => (
             <li key={film.id}> 
               <Link to={`/films/${film.id}`}>{film.title}</Link>
             </li>
           
         ))}
-      </ul>
-    </Section>
+      </Lists>
+    </DetailsContainer>
   );
 }
 

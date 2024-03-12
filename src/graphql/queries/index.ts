@@ -60,7 +60,7 @@ query Person($id: ID!) {
 
 export const GET_ALL_CHARACTERS = gql `
 query AllPeople($after: String) {
-  allPeople( first: 10, after: $after) {
+  allPeople( first: 12, after: $after) {
     pageInfo {
       endCursor
       hasNextPage

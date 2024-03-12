@@ -21,12 +21,25 @@ export const GlobalStyles = createGlobalStyle`
 `
 
 export const Text = styled.p<{ $detailsPage?: boolean; }>`
-font-size: 1rem;
+font-size: 1.2rem;
 font-weight: 400;
 line-height: 1.5rem;
 word-wrap: break-word;
 color: ${props => props.$detailsPage ? "white" : "#000"};
 margin: 1rem 0;
+`
+
+export const Transition = styled.div`
+    transition: outline 1s ease 0s;
+    a {
+        padding: 1rem;
+        display: block;
+        text-align: center;
+    }
+    &:hover{
+        box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.3);
+        outline: 10px solid #ffc107;
+    }  
 `
 
 export const Section = styled.section`
@@ -61,21 +74,10 @@ justify-content: center;
 gap: 2rem;
 `
 
-export const CardContainer = styled.div`
+export const CardContainer = styled(Transition)`
 flex-basis: 30%;
 background-color: #ffc107;
 outline: 4px solid #000;
-transition: outline 1s ease 0s;
-
-a {
-    padding: 1rem;
-    display: block;
-    text-align: center;
-}
-&:hover{
-    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.3);
-    outline: 10px solid #ffc107;
-}  
 ` 
 export const Heading = styled.span<{ $detailsPage?: boolean; }>`
 
@@ -115,21 +117,60 @@ background-color: rgba(0, 0, 0, 0.8);
 color: #fff;
 margin: 1rem auto 0;
 `
-export const CharacterList = styled.ul`
+export const Lists = styled.ul`
 columns: 3;
 -webkit-columns: 3;
 -moz-columns: 3;
+    a { 
+        color: #fff;
+        display: inline-block;
+        padding: 0.7rem;
+        background:  #ffc107;
+        margin: 0.4rem;
+    }
 
-a { 
-    color: #fff;
+    & a:hover {
+        color: #000;
+    }
+`
+export const CharactersContainer = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+`
+export const CharactersList = styled.div`
+    background-color: #ffc107;
+    flex-basis: 20%;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 3px 3px 7px 3px #ccc;
+    transition: 1s ease 0s;
+    a {
+        display: inline-block;
+        font-weight: 600;
+        padding: 0.5rem;
+        width: 100%;
+    }
+    &:hover {
+        box-shadow: 0 10px 20px -8px rgba(0, 0, 0,.7);
+    }
+`
+
+export const Button = styled.button`
     display: inline-block;
-    padding: 0.7rem;
-    background: rgb(255 232 31 / 20%);
-    margin: 0.4rem;
-}
-
-& a:hover {
+    padding: 0.8rem 1rem;
+    border: 0;
     color: #ffc107;
-}
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: 0.25s ease 0s;
+    background-color: #000;
 
+    &:hover {
+        box-shadow: 0 10px 20px -8px rgba(0, 0, 0,.7);
+        transform: translateY(-0.25em);
+    }
 `

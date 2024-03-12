@@ -3,10 +3,11 @@ import useAllFilms from '../graphql/hooks/useAllFilms';
 import AllFilms from '../components/AllFilms';
 import { FilmsType } from '../types';
 import { Container } from '../styles/global';
+import Spinner from '../styles/Spinner';
 
 const Home:FC = () => {
 	const { data, loading, error } = useAllFilms();
-	if(loading) return <div>Loading...</div>
+	if(loading) return <Spinner/>
 	if(error) return <div>Error: {error.message}</div>
 	console.log(data);
 	const { allFilms } = data;
