@@ -7,11 +7,13 @@ import Spinner from '../styles/Spinner';
 
 const Home:FC = () => {
 	const { data, loading, error } = useAllFilms();
-	const { allFilms } = data;
+	
 	
 	if(loading) return <Spinner/>
 	if(error) return <div>Error: {error.message}</div>
 	//console.log(data);
+
+	const { allFilms } = data;
 
 	return (
 		<Container>
