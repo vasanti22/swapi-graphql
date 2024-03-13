@@ -7,19 +7,22 @@ import Spinner from '../styles/Spinner';
 
 const Home:FC = () => {
 	const { data, loading, error } = useAllFilms();
+	const { allFilms } = data;
+	
 	if(loading) return <Spinner/>
 	if(error) return <div>Error: {error.message}</div>
-	console.log(data);
-	const { allFilms } = data;
+	//console.log(data);
+
 	return (
 		<Container>
 			{
-				allFilms?.films?.map( (film:FilmsType) => (
-					<AllFilms key={film.id} film={film} />
-				))
+				( 	allFilms?.films?.map( (film:FilmsType) => (
+						<AllFilms key={film.id} film={film} />
+					))
+				) 
 			}
-		</Container>
-	)
+		</Container>	
+	)	
 }
 
 export default Home

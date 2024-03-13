@@ -1,5 +1,6 @@
 import {createGlobalStyle} from "styled-components"
 import styled from 'styled-components'
+import StarWarsBg from '../assets/img/star-wars-bg.jpg'
 
 export const GlobalStyles = createGlobalStyle`
 *{
@@ -14,6 +15,10 @@ export const GlobalStyles = createGlobalStyle`
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-style: normal;
+
+    body {
+        background: url(${StarWarsBg}) top center #000;
+    }
 }
 #root{
     margin:0 auto;
@@ -21,12 +26,12 @@ export const GlobalStyles = createGlobalStyle`
 `
 
 export const Text = styled.p<{ $detailsPage?: boolean; }>`
-font-size: 1.2rem;
-font-weight: 400;
-line-height: 1.5rem;
-word-wrap: break-word;
-color: ${props => props.$detailsPage ? "white" : "#000"};
-margin: 1rem 0;
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+    word-wrap: break-word;
+    color: ${props => props.$detailsPage ? "white" : "#000"};
+    margin: 1rem 0;
 `
 
 export const Transition = styled.div`
@@ -43,108 +48,111 @@ export const Transition = styled.div`
 `
 
 export const Section = styled.section`
-width:80%;
-margin: 0 auto;
-padding: 1rem;
+    width:80%;
+    margin: 0 auto;
+    padding: 1rem;
 `
 
 export const HeaderContainer = styled.header`
+    display: flex;
+    justify-content:space-evenly;
+    align-items: center;
+    padding: 1rem;
 
-display: flex;
-justify-content:space-evenly;
-align-items: center;
-padding: 1rem;
-
-nav a {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin: 0 10px;
-    
-    &:hover{
-        color: #ffc107;
+    nav a {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin: 0 10px;
+        color: #fff;
+        
+        &:hover{
+            color: #ffc107;
+        }
+        
     }
-    
-}
 ` 
 
 export const Container = styled(Section)`
-display: flex;
-flex-wrap: wrap;
-justify-content: center;
-gap: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
 `
 
 export const CardContainer = styled(Transition)`
-flex-basis: 30%;
-background-color: #ffc107;
-outline: 4px solid #000;
+    flex-basis: 30%;
+    outline: 3px solid #000;
+    a {
+        background-color: rgb(255 193 0 / 54%);
+    }
 ` 
 export const Heading = styled.span<{ $detailsPage?: boolean; }>`
+    font-weight: 600;
+    display: block;
+    margin: 0.5rem 0;
+    color: ${props => props.$detailsPage ? "white" : "#000"};
 
-font-weight: 600;
-display: block;
-margin: 0.5rem 0;
-color: ${props => props.$detailsPage ? "white" : "#000"};
-
-span {
-    color: ${props => props.$detailsPage ? "#ffc107" : "#000"};
-}
+    span {
+        color: ${props => props.$detailsPage ? "#ffc107" : "#000"};
+    }
 `
 
 export const H1 = styled(Heading)`
-font-size: 1.5rem;
-color: ${props => props.$detailsPage ? "#ffc107" : "#000"};
+    font-size: 1.5rem;
+    color: ${props => props.$detailsPage ? "#ffc107" : "#000"};
 `
 export const H2 = styled(Heading)`
-font-size: 1.3rem;
+    font-size: 1.3rem;
 `
 export const H3 = styled(Heading)`
-font-size: 1.1rem;
-&:after {
-    content: "";
-    width: 100%;
-    display: block;
-    margin: 1rem 0;
-    border-bottom: ${props => props.$detailsPage ? "1px solid rgb(255 255 255 / 27%)" : "none" }
-}
+    font-size: 1.1rem;
+    &:after {
+        content: "";
+        width: 100%;
+        display: block;
+        margin: 1rem 0;
+        border-bottom: ${props => props.$detailsPage ? "1px solid rgb(255 255 255 / 27%)" : "none" }
+    }
 `
 
 export const H4 = styled(Heading)`
-font-size: 0.9rem;
+    font-size: 0.9rem;
 `
 export const DetailsContainer = styled(Section)`
-background-color: rgba(0, 0, 0, 0.8);
-color: #fff;
-margin: 1rem auto 0;
+    background-color: rgb(26 25 25 / 68%);
+    color: #fff;
+    margin: 1rem auto 0;
 `
 export const Lists = styled.ul`
-columns: 3;
--webkit-columns: 3;
--moz-columns: 3;
-    a { 
-        color: #fff;
-        display: inline-block;
-        padding: 0.7rem;
-        background:  #ffc107;
-        margin: 0.4rem;
-    }
+    columns: 3;
+    -webkit-columns: 3;
+    -moz-columns: 3;
+        a { 
+            display: inline-block;
+            padding: 0.7rem;
+            background:  #ffc107;
+            margin: 0.4rem;
+            border-radius: 10px;
+            font-weight: 600;
+        }
 
-    & a:hover {
-        color: #000;
-    }
+        & a:hover {
+            color: #fff;
+        }
 `
 export const CharactersContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 2rem;
+    background-color: rgb(26 25 25 / 68%);
+    padding: 4rem 0;
 `
 export const CharactersList = styled.div`
     background-color: #ffc107;
     flex-basis: 20%;
     text-align: center;
-    border-radius: 15px;
-    box-shadow: 3px 3px 7px 3px #ccc;
+    border-radius: 10px;
     transition: 1s ease 0s;
     a {
         display: inline-block;
@@ -153,7 +161,7 @@ export const CharactersList = styled.div`
         width: 100%;
     }
     &:hover {
-        box-shadow: 0 10px 20px -8px rgba(0, 0, 0,.7);
+        transform: translateY(-0.25em);
     }
 `
 
@@ -162,15 +170,15 @@ export const Button = styled.button`
     padding: 0.8rem 1rem;
     border: 0;
     color: #ffc107;
+    border: 2px solid #ffc107;
     font-weight: 600;
     font-size: 1.1rem;
     cursor: pointer;
-    border-radius: 15px;
+    border-radius: 10px;
     transition: 0.25s ease 0s;
     background-color: #000;
 
     &:hover {
-        box-shadow: 0 10px 20px -8px rgba(0, 0, 0,.7);
         transform: translateY(-0.25em);
     }
 `
