@@ -4,7 +4,11 @@ import { GET_FILM } from "../queries"
 
 const useFilmDetails = () => {
     const { id } = useParams<{ id: string }>();
-    const { data, loading, error } = useQuery(GET_FILM, { variables: { id } });
+    const { data, loading, error } = useQuery(GET_FILM, { 
+        variables: { id },
+        pollInterval: 500,
+        fetchPolicy: 'cache-and-network',
+    });
     return { data, loading, error }
 }
 

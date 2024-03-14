@@ -1,11 +1,12 @@
 import {createGlobalStyle} from "styled-components"
 import styled from 'styled-components'
 import StarWarsBg from '../assets/img/star-wars-bg.jpg'
+import { devices } from './breakpoints'
 
 export const GlobalStyles = createGlobalStyle`
 *{
     font-size: 14px;
-    color: #000;
+    color: inherit;
     margin: 0;
     padding: 0;
     outline:0;
@@ -51,6 +52,9 @@ export const Section = styled.section`
     width:80%;
     margin: 0 auto;
     padding: 1rem;
+    @media ${devices.sm} {
+        width: 90%;
+    }
 `
 
 export const HeaderContainer = styled.header`
@@ -58,6 +62,7 @@ export const HeaderContainer = styled.header`
     justify-content:space-evenly;
     align-items: center;
     padding: 1rem;
+    flex-direction: row;
 
     nav a {
         font-size: 1.2rem;
@@ -84,6 +89,9 @@ export const CardContainer = styled(Transition)`
     outline: 3px solid #000;
     a {
         background-color: rgb(255 193 0 / 54%);
+    }
+    @media ${devices.sm} {
+        flex-basis: 100%;
     }
 ` 
 export const Heading = styled.span<{ $detailsPage?: boolean; }>`
@@ -137,13 +145,19 @@ export const Lists = styled.ul`
         }
 
         & a:hover {
-            color: #fff;
+            color: #000;
         }
+    @media ${devices.sm} {
+        columns: 2;
+        -webkit-columns: 2;
+        -moz-columns: 2;
+    }
 `
 export const CharactersContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    flex-direction: row;
     gap: 2rem;
     background-color: rgb(26 25 25 / 68%);
     padding: 4rem 0;
@@ -163,6 +177,10 @@ export const CharactersList = styled.div`
     &:hover {
         transform: translateY(-0.25em);
     }
+    @media ${devices.sm} {
+        flex-basis: 50%;
+    }
+    
 `
 
 export const Button = styled.button`
@@ -181,4 +199,19 @@ export const Button = styled.button`
     &:hover {
         transform: translateY(-0.25em);
     }
+`
+
+export const FooterContainer = styled.footer`
+    padding: 2rem 1rem;
+    font-size: 1.3rem;
+    color:#fff;
+    text-align: center;
+
+    a{
+        display: inline-block;
+        margin: 1rem .5rem;
+    }
+    & a svg:hover {
+        fill: #ffc107;
+    } 
 `

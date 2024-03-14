@@ -8,7 +8,11 @@ import Spinner from '../styles/Spinner';
 
 const CharacterDetail: FC = () => {
   const { id } = useParams<{ id: string }>();
-  const { loading, error, data } = useQuery(GET_CHARACTER, { variables: { id } });
+  const { loading, error, data } = useQuery(GET_CHARACTER, { 
+    variables: { id }, 
+    pollInterval: 500,
+    fetchPolicy: 'cache-and-network',
+  });
 
   if(loading) return <Spinner/>
   if (error) return <p>Error: {error.message}</p>;

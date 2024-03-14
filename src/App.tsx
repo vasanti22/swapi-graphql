@@ -5,6 +5,7 @@ import FilmDetails from './components/FilmDetails';
 import AllCharacters from './pages/AllCharacters';
 import CharacterDetail from './components/CharacterDetail';
 import { GlobalStyles } from './styles/global'
+import Footer from "./components/Footer";
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
             <Route path="/character/:id" element={ <CharacterDetail />} />
             <Route path="/allcharacters" element={ <AllCharacters />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </div>
   );
