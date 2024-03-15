@@ -1,22 +1,14 @@
 # Star Wars GraphQL API + React Apollo Client + TypeScript
 
-
-Typescript
-Nodejs
-React
-Apollo Client
-Graphql Yoga
-Typeorm
-
 This project was bootstrapped with [Create React App]
 
 ## Tech
 
-TypeScript
-ReactJS
-Apollo Client
-Graphql
-Styled Components
+* TypeScript
+* ReactJS
+* Apollo Client
+* Graphql
+* Styled Components
 
 In the project directory, you can run:
 
