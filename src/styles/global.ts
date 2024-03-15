@@ -18,11 +18,23 @@ export const GlobalStyles = createGlobalStyle`
     font-style: normal;
 
     body {
-        background: url(${StarWarsBg}) top center #000;
+        background: url(${StarWarsBg}) top center no-repeat #000;
+    }
+    body:before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        background: rgb(0 0 0 / 70%);
+        z-index: 0;
+        top: 0;
     }
 }
 #root{
     margin:0 auto;
+    position:relative ;
+    z-index: 1;
 }
 `
 
@@ -65,6 +77,7 @@ export const HeaderContainer = styled.header`
     flex-direction: row;
 
     nav a {
+        
         font-size: 1.2rem;
         font-weight: 600;
         margin: 0 10px;
@@ -102,12 +115,16 @@ export const Heading = styled.span<{ $detailsPage?: boolean; }>`
 
     span {
         color: ${props => props.$detailsPage ? "#ffc107" : "#000"};
+        margin: ${props => props.$detailsPage ? " 0 1rem 0" : "0"};
+        font-weight: ${props => props.$detailsPage ? "400" : "600"};
     }
 `
 
 export const H1 = styled(Heading)`
     font-size: 1.5rem;
     color: ${props => props.$detailsPage ? "#ffc107" : "#000"};
+    display: ${props => props.$detailsPage ? "flex" : "block"};
+    align-items: ${props => props.$detailsPage ? "center" : "inherit"};
 `
 export const H2 = styled(Heading)`
     font-size: 1.3rem;
@@ -125,6 +142,9 @@ export const H3 = styled(Heading)`
 
 export const H4 = styled(Heading)`
     font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `
 export const DetailsContainer = styled(Section)`
     background-color: rgb(26 25 25 / 68%);
@@ -135,17 +155,21 @@ export const Lists = styled.ul`
     columns: 3;
     -webkit-columns: 3;
     -moz-columns: 3;
+        li {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+        }
         a { 
             display: inline-block;
             padding: 0.7rem;
-            background:  #ffc107;
-            margin: 0.4rem;
-            border-radius: 10px;
             font-weight: 600;
         }
 
         & a:hover {
-            color: #000;
+            color: #ffc107;
+            text-decoration: underline;
         }
     @media ${devices.sm} {
         columns: 2;

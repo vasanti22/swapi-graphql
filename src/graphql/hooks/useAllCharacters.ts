@@ -6,7 +6,6 @@ const useAllCharacters = () => {
     const { id } = useParams<{id: string}>();
     const { data, loading, error, fetchMore } = useQuery(GET_ALL_CHARACTERS, { 
         variables: { id },
-        pollInterval: 500,
         fetchPolicy: 'cache-and-network',
     });
     return { data, loading, error, fetchMore}
